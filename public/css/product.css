@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Poppins:wght@200&family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f7fa;
+}
+
+
+/* main */
+
+main .actions {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+main .actions img {
+    width: 100%;
+    height: 100% !important;
+}
+
+main .actions button {
+    padding: 7.5px;
+    border: none;
+}
+
+main .actions .edit {
+    width: 37px;
+    height: 37px;
+    padding: 7px;
+    background: #4DD573;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+main .actions .delete {
+    width: 37px;
+    height: 37px;
+    background: #D54D4D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .alert-empty {
+    text-align: center;
+    margin: 40px 0px 60px 0px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+main #add-new-product {
+    display: flex;
+    align-items: center;
+}
+
+main form .company-image {
+    display: flex;
+    justify-content: space-between;
+}
+
+main form .company-image .image {
+    display: flex;
+    justify-content: space-between;
+}
+
+main form .company-image .image .input-logo {
+    margin-left: 15px;
+}
+
+main form .company-image .input-logo input {
+    width: 100%;
+    height: 150px;
+    display: none;
+}
+
+main .input-logo input {
+    display: none;
+}
+  
+main .input-logo {
+    width: 365px;
+    height: 365px;
+    border: 3px solid #2196F3 !important;
+    aspect-ratio: 16/9;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+}
+  
+main .input-logo:hover {
+    color: #777;
+    background: #FFFFFF;
+}
+  
+main .input-logo:active {
+    background: #FFFFFF;
+    border-color: turquoise;
+    color: turquoise;
+}
+  
+main .input-logo:focus {
+    background: #FFFFFF;
+    color: #777;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+  
+main .input-logo img {
+    width: 160px;
+    max-width: 100%;
+}
+
+main .product-inputs {
+    width: 100%;
+    max-width: 500px;
+    margin-left: 50px;
+}
+
+main .product-inputs select {
+    width: 100% !important;
+    height: 50px;
+    max-width: 100%;
+    margin-top: 10px;
+    border: 1px solid #364247;
+    margin-bottom: 20px;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529 !important;
+    border-radius: 6.38821px !important;
+}
+
+main .product-inputs select:focus {
+    outline: none;
+    border-color: #364247;
+    box-shadow: none;
+}
+
+main .product-inputs input {
+    margin-bottom: 20px;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 6.38821px !important;
+}
+
+main .input-group {
+    display: inline;
+}
+
+main form textarea {
+    max-width: 100% !important;
+    min-height: 100px !important;
+    border-radius: 6.38821px !important;
+}
+
+main form textarea::-webkit-scrollbar {
+    width: 3px;
+}
+  
+main form textarea::-webkit-scrollbar-track {
+    background: #FFFFFF; 
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #888; 
+}
+
+main form button {
+    width: 100%;
+}
+
+main .products .alert {
+    min-height: 348px
+}
+
+main .products .alert .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25%;
+    margin-bottom: 40%;
+}
+
+main .products .alert img {
+    width: 75px;
+    height: auto;
+}
+
+main .products .alert h4 {
+    font-family: 'Golos';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20.0272px;
+    line-height: 7px;
+    text-align: center;
+    color: #2196F3;
+    text-align: center
+}
+
+@media (max-width: 700px) {
+    main .best-goods {
+        display: block !important;
+    }
+}
+
+@media (max-width: 630px) {
+    main .best-goods .product {
+        width: 100%;
+    }
+    main .best-goods .product img {
+        height: auto;
+    }
+}

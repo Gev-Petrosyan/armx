@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Poppins:wght@200&family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f7fa;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main form {
+    width: 580px;
+    background: #FFFFFF;
+    border: 1.59705px solid #CFD8DC;
+    border-radius: 6.38821px;
+    padding: 40px 30px;
+}
+
+main form h2 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 31.941px;
+    line-height: 42px;
+    text-align: center;
+    color: #212121;
+    margin-bottom: 30px;
+}
+
+main form input {
+    width: 100%;
+    height: 76.66px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    background: #FFFFFF;
+    border: 1.59705px solid #CFD8DC;
+    border-radius: 6.38821px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.3587px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    color: #607D8B;
+    opacity: 0.8;
+}
+
+main form input:focus {
+    outline: none;
+}
+
+main form .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main form .links a {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.3587px;
+    line-height: 32px;
+    text-decoration: none;
+}
+
+main form .links .forgot-password {
+    color: #263238;
+}
+
+main form .links .auth {
+    color: #2962FF;
+}
+
+main form button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20.7617px 38.3292px;
+    border: none;
+    gap: 15.97px;
+    background: #2196F3;
+    border-radius: 6.38821px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25.5528px;
+    line-height: 35px;
+    cursor: pointer;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 30px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+main form button:focus {
+    outline: none;
+}
+
+main .errors {
+    color: red;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media (max-width: 1600px) {
+    main form {
+        width: 480px;
+    }
+    main form h2 {
+        font-size: 28px;
+    }
+    main form input {
+        height: 50px;
+        font-size: 18px;
+    }
+    main form .links a {
+        font-size: 18px;
+    }
+    main form button {
+        padding: 10px 38.3292px;
+        font-size: 20px;
+    }
+    main .errors {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        display: inline;
+    }
+    main form  {
+        width: 100%;
+        min-height: auto;
+        margin-top: 30px;
+    }
+    main form h2 {
+        font-size: 24px;
+    }
+    main form input {
+        height: 40px;
+        font-size: 14px;
+    }
+    main form .links a {
+        font-size: 14px;
+    }
+    main form button {
+        padding: 8px 38.3292px;
+        font-size: 18px;
+    }
+    main .errors {
+        font-size: 13px;
+    }
+}

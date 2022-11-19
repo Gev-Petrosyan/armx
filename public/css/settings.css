@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&family=Poppins:wght@200&family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 1360px;
+    margin: auto;
+    display: block;
+    justify-content: start;
+    align-items: center;
+}
+
+main .links-group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+main .links-group a {
+    margin-right: 15px;
+    text-decoration: none;
+    font-family: 'Golos';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 9px;
+    text-align: center;
+    color: #000000;
+}
+
+main .links-group .active {
+    padding-bottom: 25px;
+    border-bottom: 5px solid #2196F3;
+}
+
+@media (max-width: 1400px) {
+    main {
+        max-width: 1100px;
+    }
+}
+
+@media (max-width: 1140px) {
+    main {
+        max-width: 850px;
+    }
+}
+
+@media (max-width: 590px) {
+    main {
+        max-width: 690px;
+    }
+}
+
+@media (max-width: 630px) {
+    main {
+        max-width: 90%;
+    }
+}
+
+main .company-info {
+    width: 100%;
+}
+
+main .company-info form {
+    width: 100%;
+}
+
+main .company-info form label {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #263238;
+    opacity: 0.8;
+}
+
+main .company-info form input {
+    max-width: 475px;
+    margin-top: 10px;
+    background: #FFFFFF;
+    border: 1px solid #364247;
+    border-radius: 4px;
+}
+
+main .company-info form .login {
+    margin-top: 50px;
+}
+
+main .company-info form .about_us {
+    width: 100%;
+    margin-top: 50px;
+    display: inline-grid;
+}
+
+main .company-info form textarea {
+    max-width: 475px;
+    width: 100%;
+    min-height: 110px;
+    resize: none;
+    background: #FFFFFF;
+    border: 1px solid #364247;
+    border-radius: 4px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #263238;
+    opacity: 0.8;
+    padding: 10px;
+}
+
+main .company-info form textarea:focus {
+    outline: none;
+}
+
+.company-image-title {
+    margin-top: 75px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.company-image-title h3 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    color: #263238;
+    opacity: 0.8;
+}
+
+main form .company-image {
+    display: flex;
+    justify-content: space-between;
+}
+
+main form .company-image .image {
+    display: flex;
+    justify-content: space-between;
+}
+
+main form .company-image .input-logo {
+    width: 150px;
+    height: 150px;
+    background: #FFFFFF;
+    border: 3px solid #2196F3;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    background-position: center;
+
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+}
+
+main form .company-image .image .input-logo {
+    margin-left: 15px;
+}
+
+main form .company-image .input-logo input {
+    width: 100%;
+    height: 150px;
+    display: none;
+}
+
+main .input-logo input {
+    display: none;
+}
+  
+main .input-logo {
+    width: 400px;
+    aspect-ratio: 16/9;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: 2px dashed currentcolor;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+}
+  
+main .input-logo:hover {
+    color: #777;
+    background: #ccc;
+}
+  
+main .input-logo:active {
+    border-color: turquoise;
+    color: turquoise;
+    background: #eee;
+}
+  
+main .input-logo:focus {
+    color: #777;
+    background: #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+  
+main .input-logo img {
+    width: 75px;
+    max-width: 100%;
+}
+
+@media (max-width: 1142px) {
+    main .company-image .image {
+        flex-wrap: wrap;
+        max-width: 350px;
+    }
+    main form .company-image .image .input-logo {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    main .company-image .image {
+        max-width: 250px;
+    }
+    main form .company-image .image .input-logo {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 550px) {
+    main form .company-image .input-logo {
+        width: 75px;
+        height: 75px;
+    }
+    main form .company-image .input-logo img {
+        width: 40px;
+    }
+    main .company-image .image {
+        max-width: 200px;
+    }
+}
+
+main form button {
+    margin-top: 50px;
+    background-color: #2196F3;
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main form .errors p {
+    text-align: left;
+    color: red;
+    font-size: 17px;
+    font-weight: 600;
+}
+
