@@ -7,6 +7,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminActionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,30 @@ Route::middleware([
     Route::get('/admin/products', [AdminController::class, "products"])->name('adminProducts');
     Route::get('/admin/city', [AdminController::class, "city"])->name('adminCity');
     Route::get('/admin/category', [AdminController::class, "category"])->name('adminCategory');
+
+    // admin actions
+
+    Route::get('/admin/company/edit/{id}', [AdminActionController::class, "editCompany"])->name('editCompany');
+    Route::get('/admin/product/edit/{id}', [AdminActionController::class, "editProduct"])->name('editProduct');
+    Route::get('/admin/city/edit/{id}', [AdminActionController::class, "editCity"])->name('editCity');
+    Route::get('/admin/category/edit/{id}', [AdminActionController::class, "editCategory"])->name('editCategory');
+
+    Route::get('/admin/company/delete/{id}', [AdminActionController::class, "deleteCompany"])->name('deleteCompany');
+    Route::get('/admin/product/delete/{id}', [AdminActionController::class, "deleteProduct"])->name('deleteProduct');
+    Route::get('/admin/city/delete/{id}', [AdminActionController::class, "deleteCity"])->name('deleteCity');
+    Route::get('/admin/category/delete/{id}', [AdminActionController::class, "deleteCategory"])->name('deleteCategory');
+
+    Route::post('/admin/city/update', [AdminActionController::class, "updateCity"])->name('updateCity');
+    Route::post('/admin/category/update', [AdminActionController::class, "updateCategory"])->name('updateCategory');
+
+    Route::get('/admin/company/add', [AdminActionController::class, "addCompany"])->name('addCompany');
+    Route::get('/admin/product/add', [AdminActionController::class, "addProduct"])->name('addProduct');
+    Route::get('/admin/city/add', [AdminActionController::class, "addCity"])->name('addCity');
+    Route::get('/admin/category/add', [AdminActionController::class, "addCategory"])->name('addCategory');
+
+    Route::post('/admin/company/create', [AdminActionController::class, "createCompany"])->name('createCompany');
+    Route::post('/admin/product/create', [AdminActionController::class, "createProduct"])->name('createProduct');
+    Route::post('/admin/city/create', [AdminActionController::class, "createCity"])->name('createCity');
+    Route::post('/admin/category/create', [AdminActionController::class, "createCategory"])->name('createCategory');
 
 });

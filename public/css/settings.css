@@ -256,8 +256,27 @@ main .input-logo img {
 }
 
 main form button {
+    font-family: 'Roboto';
+    font-style: normal;
     margin-top: 50px;
     background-color: #2196F3;
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main form a {
+    font-family: 'Roboto';
+    font-style: normal;
+    border-radius: 7px;
+    margin-top: 50px;
+    background-color: #2196F3;
+    color: #FFFFFF;
+    text-decoration: none;
     width: 200px;
     height: 50px;
     font-size: 18px;

@@ -1,0 +1,19 @@
+table img {
+    height: 40px;
+}
+
+.edit img {
+    width: 100%;
+    height: 100% !important;
+}
+
+.edit {
+    width: 37px;
+    height: 37px;
+    padding: 7px;
+    background: #4DD573;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}

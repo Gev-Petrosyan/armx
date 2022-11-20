@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="{{asset("css/style.css")}}">
     <link rel="stylesheet" href="{{asset("css/auth.css")}}">
     <link rel="stylesheet" href="{{asset("css/settings.css")}}">
-    <style>
-        table img {
-            height: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset("css/adminListLayout.css")}}">
     <title>Admin panel</title>
 </head>
 <body>
@@ -33,8 +29,9 @@
                 <thead>
                   <tr>
                     <th scope="col">Название города</th>
-                    <th scope="col">Род города</th>
-                    <th scope="col">Фото</th>
+                    <th scope="col">род города</th>
+                    <th scope="col">фото</th>
+                    <th scope="col">действие</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,13 +42,17 @@
                             <td>{{$city->type}}</td>
                             <td>
                                 @if (isset($city->image))
-                                    <td><img src="{{asset("storage/city/" . $city->image)}}" alt="image"></td>
+                                    <img src="{{asset("storage/city/" . $city->image)}}" alt="image">
                                 @else
-                                    <td>Пусто</td>
+                                    Пусто
                                 @endif
                             </td>
+                            <td>
+                                <a href="{{route("editCity", $city->id)}}" class="edit">
+                                    <img src="{{asset("images/edit.png")}}" alt="action">
+                                </a>
+                            </td>
                         </tr>
-                        {{-- <td><a href="#"></a></td> --}}
                     @endforeach
                   @endif
                 </tbody>

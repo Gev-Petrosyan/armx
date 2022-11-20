@@ -71,4 +71,3 @@ add_new_product_alert.addEventListener("click", () => {
 });
 
 
-

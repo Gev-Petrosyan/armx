@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="{{asset("css/style.css")}}">
     <link rel="stylesheet" href="{{asset("css/auth.css")}}">
     <link rel="stylesheet" href="{{asset("css/settings.css")}}">
-    <style>
-        table img {
-            height: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset("css/adminListLayout.css")}}">
     <title>Admin panel</title>
 </head>
 <body>
@@ -41,6 +37,7 @@
                     <th scope="col">Фото2</th>
                     <th scope="col">Фото3</th>
                     <th scope="col">Фото4</th>
+                    <th scope="col">действие</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -52,15 +49,19 @@
                             <td>{{$product->category}}</td>
                             <td>{{$product->description}}</td>
                             <td>{{$product->price}}</td>
-                            @for ($i = 0; $i < 4; $i++)
-                                @if (isset($product->images[$i]))
-                                    <td><img src="{{asset("storage/product/" . $product->images[$i]->image)}}" alt="image"></td>
-                                @else
-                                    <td>Пусто</td>
-                                @endif
-                            @endfor
+                                @for ($i = 0; $i < 4; $i++)
+                                    @if (isset($product->images[$i]))
+                                        <td><img src="{{asset("storage/product/" . $product->images[$i]->image)}}" alt="image"></td>
+                                    @else
+                                        <td>Пусто</td>
+                                    @endif
+                                @endfor
+                            <td>
+                                <a href="{{route("editProduct", $product->id)}}" class="edit">
+                                    <img src="{{asset("images/edit.png")}}" alt="action">
+                                </a>
+                            </td>
                         </tr>
-                        {{-- <td><a href="#"></a></td> --}}
                     @endforeach
                   @endif
                 </tbody>

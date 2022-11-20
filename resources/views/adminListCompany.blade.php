@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="{{asset("css/style.css")}}">
     <link rel="stylesheet" href="{{asset("css/auth.css")}}">
     <link rel="stylesheet" href="{{asset("css/settings.css")}}">
-    <style>
-        table img {
-            height: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset("css/adminListLayout.css")}}">
     <title>Admin panel</title>
 </head>
 <body>
@@ -43,6 +39,7 @@
                     <th scope="col">фото2</th>
                     <th scope="col">фото3</th>
                     <th scope="col">фото4</th>
+                    <th scope="col">действие</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -55,20 +52,26 @@
                             <td>{{$company->phone}}</td>
                             <td>{{$company->email}}</td>
                             <td>{{$company->status}}</td>
-                            @if (isset($company->logo))
-                                <td><img src="{{asset("storage/company/" . $company->logo)}}" alt="logo"></td>
-                            @else
-                                <td>Пусто</td>
-                            @endif
+                            <td>
+                                @if (isset($company->logo))
+                                    <img src="{{asset("storage/company/" . $company->logo)}}" alt="logo">
+                                @else
+                                    Пусто
+                                @endif
+                            </td>
                             @for ($i = 0; $i < 4; $i++)
                                 @if (isset($company->images[$i]))
                                     <td><img src="{{asset("storage/company/" . $company->images[$i]->image)}}" alt="image"></td>
                                 @else
-                                    <td></td>
+                                    <td>Пусто</td>
                                 @endif
                             @endfor
+                            <td>
+                                <a href="{{route("editCompany", $company->id)}}" class="edit">
+                                    <img src="{{asset("images/edit.png")}}" alt="action">
+                                </a>
+                            </td>
                         </tr>
-                        {{-- <td><a href="#"></a></td> --}}
                     @endforeach
                   @endif
                 </tbody>

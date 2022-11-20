@@ -18,6 +18,12 @@
         @include('layouts/navabar')
     </header>
     <main>
+        <div class="links-group">
+            <a href="{{route("adminIndex")}}">компании</a>
+            <a href="{{route("adminProducts")}}" class="active">товары</a>
+            <a href="{{route("adminCity")}}">города</a>
+            <a href="{{route("adminCategory")}}">категории</a>
+        </div>
         <div class="company-info">
             <form method="POST" action="{{route("productUpdate")}}" enctype="multipart/form-data" style="display:flex">
                 @csrf

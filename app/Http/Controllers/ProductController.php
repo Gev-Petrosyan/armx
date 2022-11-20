@@ -132,8 +132,11 @@ class ProductController extends Controller
     public function edit($id) {
         $product = Product::find($id);
         if (empty($product) || Auth::user()->id != $product->id_user) return abort(404);
+        $categories = Categories::get("category");
+
         return view("editProduct", [
-            "product" => $product
+            "product" => $product,
+            "categories" => $categories
         ]);
     }
 
@@ -158,7 +161,7 @@ class ProductController extends Controller
         $id = $request->id;
 
         $product = Product::find($id);
-        if (empty($product) || Auth::user()->id != $product->id_user) return abort(404);
+        if (empty($product) || (Auth::user()->id != $product->id_user || Auth::user()->role != "admin")) return abort(404);
 
         $product->name = $request->name;
         $product->category = $request->category;
@@ -185,7 +188,7 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->route('productShow', $id);
+        return (Auth::user()->role != "admin") ? redirect()->route('productShow', $id) : redirect()->route('adminProducts');
 
     }
 
