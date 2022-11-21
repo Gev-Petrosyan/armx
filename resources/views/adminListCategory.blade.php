@@ -25,7 +25,7 @@
             <a href="{{route("adminCategory")}}" class="active">категории</a>
         </div>
         <div class="company-info">
-            <table class="table" style="background: #FFFFFF">
+            <table class="table table-bordered" style="background: #FFFFFF">
                 <thead>
                   <tr>
                     <th scope="col">Название категория</th>
@@ -48,7 +48,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{route("productEdit", $category->id)}}" class="edit">
+                                <a href="{{route("editCategory", $category->id)}}" class="edit">
                                     <img src="{{asset("images/edit.png")}}" alt="action">
                                 </a>
                             </td>
@@ -57,6 +57,7 @@
                   @endif
                 </tbody>
               </table>
+              <a class="btn btn-primary mb-3" href="#">Добавить</a>
               {{$categories->links()}}
         </div>
     </main>

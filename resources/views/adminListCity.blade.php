@@ -25,7 +25,7 @@
             <a href="{{route("adminCategory")}}">категории</a>
         </div>
         <div class="company-info">
-            <table class="table" style="background: #FFFFFF">
+            <table class="table table-bordered" style="background: #FFFFFF">
                 <thead>
                   <tr>
                     <th scope="col">Название города</th>
@@ -57,6 +57,7 @@
                   @endif
                 </tbody>
               </table>
+              <a class="btn btn-primary mb-3" href="#">Добавить</a>
               {{$citys->links()}}
         </div>
     </main>
