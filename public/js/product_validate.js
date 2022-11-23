@@ -2,6 +2,7 @@ $(function() {
 
     const products = $("#products");
 
+    let subcategory = "all";
     let category = "all";
     let city = "all";
     const _token = $("meta[name='csrf_token']").attr("content");
@@ -22,6 +23,7 @@ $(function() {
         deleteActivity(buttons);
         $(this).removeClass("denied");
         $(this).addClass("active");
+        (subcategory != $(this).html) ? request(subcategory, category, city) : subcategory = $(this).html();
     });
 
     
@@ -36,7 +38,7 @@ $(function() {
             category = $(this).html();
             $(this).addClass("active");
         }
-        request(category, city);
+        request(subcategory, category, city);
     });
 
 
@@ -51,7 +53,7 @@ $(function() {
             city = $(this).html();
             $(this).addClass("active");
         }
-        request(category, city);
+        request(subcategory, category, city);
     });
 
     const select_category = $("#select-category");
@@ -59,16 +61,16 @@ $(function() {
 
     select_category.change(function () {
         category = $(this).val();
-        request(category, city)
+        request(subcategory, category, city)
     })
 
     select_city.change(function () {
         city = $(this).val();
-        request(category, city)
+        request(subcategory, category, city)
     })
 
 
-    function request(category, city) {
+    function request(subcategory, category, city) {
         products.html("");
 
         for (let i = 0; i < 9; i++) {
@@ -98,6 +100,7 @@ $(function() {
             type: "POST",
             data: {
                 _token: _token,
+                subcategory: subcategory,
                 category: category,
                 city: city
             },
