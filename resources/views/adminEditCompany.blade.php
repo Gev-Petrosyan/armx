@@ -23,7 +23,7 @@
             <a href="{{route("adminCategory")}}">категории</a>
         </div>
         <div class="company-info">
-            <form id="editProfileForm" method="POST" action="{{route("settingsEdit")}}" enctype="multipart/form-data">
+            <form id="editProfileForm" method="POST" action="{{route("updateCompany")}}" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{$company->id}}">
                 <div class="input-group">

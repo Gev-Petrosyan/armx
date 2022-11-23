@@ -58,7 +58,6 @@ main .alert-empty {
 
 main #add-new-product {
     display: flex;
-    align-items: center;
 }
 
 main form .company-image {

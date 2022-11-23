@@ -57,7 +57,7 @@
                   @endif
                 </tbody>
               </table>
-              <a class="btn btn-primary mb-3" href="#">Добавить</a>
+              <a class="btn btn-primary mb-3" href="{{route("addCategory")}}">Добавить</a>
               {{$categories->links()}}
         </div>
     </main>

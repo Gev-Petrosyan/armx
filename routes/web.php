@@ -67,6 +67,7 @@ Route::middleware([
     Route::get('/admin/city/delete/{id}', [AdminActionController::class, "deleteCity"])->name('deleteCity');
     Route::get('/admin/category/delete/{id}', [AdminActionController::class, "deleteCategory"])->name('deleteCategory');
 
+    Route::post('/admin/company/update', [AdminActionController::class, "updateCompany"])->name('updateCompany');
     Route::post('/admin/city/update', [AdminActionController::class, "updateCity"])->name('updateCity');
     Route::post('/admin/category/update', [AdminActionController::class, "updateCategory"])->name('updateCategory');
 
@@ -76,7 +77,6 @@ Route::middleware([
     Route::get('/admin/category/add', [AdminActionController::class, "addCategory"])->name('addCategory');
 
     Route::post('/admin/company/create', [AdminActionController::class, "createCompany"])->name('createCompany');
-    Route::post('/admin/product/create', [AdminActionController::class, "createProduct"])->name('createProduct');
     Route::post('/admin/city/create', [AdminActionController::class, "createCity"])->name('createCity');
     Route::post('/admin/category/create', [AdminActionController::class, "createCategory"])->name('createCategory');
 

@@ -286,6 +286,10 @@ main form a {
     justify-content: center;
 }
 
+main form a:hover {
+    color: #FFFFFF;
+}
+
 main form .errors p {
     text-align: left;
     color: red;

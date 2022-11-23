@@ -45,6 +45,7 @@
                         </div>
                     @endif
                     <button type="submit" style="margin-top: 25px">Подтвердить изменения</button>
+                    <a href="{{route("deleteProduct", $product->id)}}" style="margin-top:15px;background:red;width:100%">Удалить</a>
                 </div>
                 <div class="product-inputs">
                     <div class="input-group">
@@ -62,6 +63,18 @@
                                     </div>
                                 @endforeach
                             @endif
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="subcategory">Подкатегории</label>
+                        <select id="subcategory" class="form-select" name="subcategory" aria-label="Default select example" required>
+                            <option value="{{$product->subcategory}}" selected>{{$product->subcategory}}</option>
+                            <option value="Другое">Другое</option>
+                            <option value="Отделочные работы">Отделочные работы</option>
+                            <option value="Спецтехника">Спецтехника</option>
+                            <option value="Крышки для колонн">Крышки для колонн</option>
+                            <option value="Парапеты">Парапеты</option>
+                            <option value="Декор">Декор</option>
                         </select>
                     </div>
                     <div class="input-group">

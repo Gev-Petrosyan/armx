@@ -57,7 +57,7 @@
                   @endif
                 </tbody>
               </table>
-              <a class="btn btn-primary mb-3" href="#">Добавить</a>
+              <a class="btn btn-primary mb-3" href="{{route("addCity")}}">Добавить</a>
               {{$citys->links()}}
         </div>
     </main>

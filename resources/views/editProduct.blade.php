@@ -59,6 +59,18 @@
                         </select>
                     </div>
                     <div class="input-group">
+                        <label for="subcategory">Подкатегории</label>
+                        <select id="subcategory" class="form-select" name="subcategory" aria-label="Default select example" required>
+                            <option value="{{$product->subcategory}}" selected>{{$product->subcategory}}</option>
+                            <option value="Другое">Другое</option>
+                            <option value="Отделочные работы">Отделочные работы</option>
+                            <option value="Спецтехника">Спецтехника</option>
+                            <option value="Крышки для колонн">Крышки для колонн</option>
+                            <option value="Парапеты">Парапеты</option>
+                            <option value="Декор">Декор</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
                         <label for="price">Цена</label>
                         <input type="number" id="price" name="price" value="{{$product->price}}" required>
                     </div>

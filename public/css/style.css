@@ -351,6 +351,7 @@ main .popular-goods .product img {
 main .popular-goods .product p {
     border-radius: 0px;
     flex: none;
+    font-size: 17px;
     order: 0;
     flex-grow: 0;
 }

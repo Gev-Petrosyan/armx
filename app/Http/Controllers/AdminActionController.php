@@ -117,10 +117,6 @@ class AdminActionController extends Controller
 
     }
 
-
-    // ---------------------------------
-
-
     public function updateCompany(Request $request) {
         
         $request->validate([
@@ -238,7 +234,7 @@ class AdminActionController extends Controller
     }
     
     public function deleteProduct($id) {
-        $product = Product::find($id)->with(["images"])->get();
+        $product = Product::find($id)->with(["images"])->first();
         if (Auth::user()->role != "admin" || empty($product)) abort(404);
 
         foreach ($product->images as $image) {
@@ -387,16 +383,58 @@ class AdminActionController extends Controller
 
     }
     
-    public function createProduct(Request $request) {
-        
-    }
-    
     public function createCity(Request $request) {
-        
+
+        if (Auth::user()->role != "admin") abort(404);
+        $city = new Citys;
+
+        $request->validate([
+            'city' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'string', 'max:255'],
+            'image' => ['required']
+        ]);
+
+        if ($request->hasFile("image")) {
+            $image = $request->image;
+            $imageExtention = $image->getClientOriginalExtension();
+            $imageFullName = time() . '-' . rand(1111, 9999) . '.' . $imageExtention;
+            $image->move(public_path() . '/storage/city/', $imageFullName);
+
+            $city->image = $imageFullName;
+        }
+
+        $city->city = $request->city;
+        $city->type = $request->type;
+        $city->save();
+        return redirect()->route("adminCity");
+
     }
     
     public function createCategory(Request $request) {
         
+        if (Auth::user()->role != "admin") abort(404);
+        $category = new Categories;
+
+        $request->validate([
+            'category' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'string', 'max:255'],
+            'image' => ['required']
+        ]);
+
+        if ($request->hasFile("image")) {
+            $image = $request->image;
+            $imageExtention = $image->getClientOriginalExtension();
+            $imageFullName = time() . '-' . rand(1111, 9999) . '.' . $imageExtention;
+            $image->move(public_path() . '/storage/category/', $imageFullName);
+
+            $category->image = $imageFullName;
+        }
+
+        $category->category = $request->category;
+        $category->type = $request->type;
+        $category->save();
+        return redirect()->route("adminCategory");
+
     }
 
 }

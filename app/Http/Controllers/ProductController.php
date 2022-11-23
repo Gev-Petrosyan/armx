@@ -27,6 +27,7 @@ class ProductController extends Controller
             'images' => ["required", "max:4"],
             'name' => ["required", "string","max:255"],
             'category' => ["required", "string","max:255"],
+            'subcategory' => ["required", "string","max:255"],
             'price' => ["required", "integer"],
             'description' => ["required", "string", "max:500"]
         ]);
@@ -37,6 +38,7 @@ class ProductController extends Controller
             "id_user" => $id,
             "name" => $request->name,
             "category" => $request->category,
+            "subcategory" => $request->subcategory,
             "price" => $request->price,
             "description" => $request->description,
         ]);
@@ -62,12 +64,12 @@ class ProductController extends Controller
     public function getDataValidate(Request $request) {
 
         $request->validate([
+            'subcategory' => ["required", "string","max:255"],
             'category' => ["required", "string","max:255"],
             'city' => ["required", "string","max:255"],
         ]);
 
-        // get ['id', 'name','category', 'price']
-
+        $subcategory = $request->subcategory;
         $category = $request->category;
         $city = $request->city;
 
@@ -154,6 +156,7 @@ class ProductController extends Controller
             'images' => ["max:4"],
             'name' => ["required", "string","max:255"],
             'category' => ["required", "string","max:255"],
+            'subcategory' => ["required", "string","max:255"],
             'price' => ["required", "integer"],
             'description' => ["required", "string", "max:500"]
         ]);
@@ -165,6 +168,7 @@ class ProductController extends Controller
 
         $product->name = $request->name;
         $product->category = $request->category;
+        $product->subcategory = $request->subcategory;
         $product->price = $request->price;
         $product->description = $request->description;
 

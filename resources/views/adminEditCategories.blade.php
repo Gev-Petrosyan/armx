@@ -45,6 +45,7 @@
                         </div>
                     @endif
                     <button type="submit" style="margin-top: 25px">Подтвердить изменения</button>
+                    <a href="{{route("deleteCategory", $category->id)}}" style="margin-top:15px;background:red;width:100%">Удалить</a>
                 </div>
                 <div class="product-inputs">
                     <div class="input-group">
