@@ -7,6 +7,8 @@ $(function() {
     let city = "all";
     const _token = $("meta[name='csrf_token']").attr("content");
 
+    const pagination = $(".pagination");
+
     function deleteActivity(element) {
         element.removeClass("active");
         element.addClass("denied");
@@ -23,7 +25,8 @@ $(function() {
         deleteActivity(buttons);
         $(this).removeClass("denied");
         $(this).addClass("active");
-        (subcategory != $(this).html) ? request(subcategory, category, city) : subcategory = $(this).html();
+        subcategory = $(this).html() == "Все" ? "all" : $(this).html();
+        request(subcategory, category, city);
     });
 
     
@@ -71,6 +74,7 @@ $(function() {
 
 
     function request(subcategory, category, city) {
+        pagination.html("");
         products.html("");
 
         for (let i = 0; i < 9; i++) {

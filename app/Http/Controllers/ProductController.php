@@ -73,7 +73,7 @@ class ProductController extends Controller
         $category = $request->category;
         $city = $request->city;
 
-        if ($category == "all" && $city == "all") {
+        if ($subcategory == "all" && $category == "all" && $city == "all") {
             $products = DB::table("products")
             ->distinct('products.id')
             ->leftJoin("users", "users.id", "=", "products.id_user")
@@ -81,16 +81,16 @@ class ProductController extends Controller
             "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
             ->limit(90)
             ->get();
-        } else if ($category == "all") {
+        } else if ($subcategory != "all" && $category == "all" && $city == "all") {
             $products = DB::table("products")
             ->distinct('products.id')
+            ->where("products.subcategory", $subcategory)
             ->leftJoin("users", "users.id", "=", "products.id_user")
-            ->where("users.city", $city)
             ->select("products.id", "products.name", "products.category",
             "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
             ->limit(90)
             ->get();
-        } else if ($city == "all") {
+        } else if ($subcategory == "all" && $category != "all" && $city == "all") {
             $products = DB::table("products")
             ->distinct('products.id')
             ->where("products.category", $category)
@@ -99,9 +99,49 @@ class ProductController extends Controller
             "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
             ->limit(90)
             ->get();
+        } else if ($subcategory == "all" && $category == "all" && $city != "all") {
+            $products = DB::table("products")
+            ->distinct('products.id')
+            ->leftJoin("users", "users.id", "=", "products.id_user")
+            ->where("users.city", $city)
+            ->select("products.id", "products.name", "products.category",
+            "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
+            ->limit(90)
+            ->get();
+        } else if ($subcategory != "all" && $category != "all" && $city == "all") {
+            $products = DB::table("products")
+            ->distinct('products.id')
+            ->where("products.subcategory", $subcategory)
+            ->where("products.category", $category)
+            ->leftJoin("users", "users.id", "=", "products.id_user")
+            ->select("products.id", "products.name", "products.category",
+            "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
+            ->limit(90)
+            ->get();
+        } else if ($subcategory == "all" && $category != "all" && $city != "all") {
+            $products = DB::table("products")
+            ->distinct('products.id')
+            ->where("products.category", $category)
+            ->leftJoin("users", "users.id", "=", "products.id_user")
+            ->where("users.city", $city)
+            ->select("products.id", "products.name", "products.category",
+            "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
+            ->limit(90)
+            ->get();
+        } else if ($subcategory != "all" && $category == "all" && $city != "all") {
+            $products = DB::table("products")
+            ->distinct('products.id')
+            ->where("products.subcategory", $subcategory)
+            ->leftJoin("users", "users.id", "=", "products.id_user")
+            ->where("users.city", $city)
+            ->select("products.id", "products.name", "products.category",
+            "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
+            ->limit(90)
+            ->get();
         } else {
             $products = DB::table("products")
             ->distinct('products.id')
+            ->where("products.subcategory", $subcategory)
             ->where("products.category", $category)
             ->leftJoin("users", "users.id", "=", "products.id_user")
             ->where("users.city", $city)

@@ -175,6 +175,13 @@ header .buttons-mobile .button-two {
     color: #263238;
 }
 
+@media (max-width: 600px) {
+    header .buttons-mobile {
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+    }
+}
+
 
 /* main */
 
