@@ -94,8 +94,8 @@
                         <input type="name" id="name" name="name" value="{{old("name")}}" required>
                     </div>
                     <div class="input-group">
-                        <label for="category">Категория</label>
-                        <select id="category" class="form-select" name="category" aria-label="Default select example" required>
+                        <label for="subcategory">Категория</label>
+                        <select id="subcategory" class="form-select" name="subcategory" aria-label="Default select example" required>
                             <option value="" selected></option>
                             @if ($categories)
                                 @foreach ($categories as $category)
@@ -107,14 +107,9 @@
                         </select>
                     </div>
                     <div class="input-group">
-                        <label for="subcategory">Подкатегории</label>
-                        <select id="subcategory" class="form-select" name="subcategory" aria-label="Default select example" required>
-                            <option value="Другое" selected>Другое</option>
-                            <option value="Отделочные работы">Отделочные работы</option>
-                            <option value="Спецтехника">Спецтехника</option>
-                            <option value="Крышки для колонн">Крышки для колонн</option>
-                            <option value="Парапеты">Парапеты</option>
-                            <option value="Декор">Декор</option>
+                        <label for="category">Подкатегории</label>
+                        <select id="category" class="form-select" name="category" aria-label="Default select example" required>
+                            <option value="" selected>Выберите категорию для начало</option>
                         </select>
                     </div>
                     <div class="input-group">
@@ -131,6 +126,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="{{asset("js/subcategory.js")}}"></script>
     <script src="{{asset("js/add_products.js")}}"></script>
 </body> 
 </html>

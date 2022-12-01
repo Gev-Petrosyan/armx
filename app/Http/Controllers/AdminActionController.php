@@ -111,7 +111,7 @@ class AdminActionController extends Controller
         }
 
         $category->category = $request->category;
-        $category->type = $request->type;
+        $category->categoryID = $request->type;
         $category->save();
         return redirect()->route("adminCategory");
 
@@ -417,7 +417,7 @@ class AdminActionController extends Controller
 
         $request->validate([
             'category' => ['required', 'string', 'max:255'],
-            'type' => ['required', 'string', 'max:255'],
+            'type' => ['max:255'],
             'image' => ['required']
         ]);
 
@@ -431,7 +431,7 @@ class AdminActionController extends Controller
         }
 
         $category->category = $request->category;
-        $category->type = $request->type;
+        $category->categoryID = $request->type;
         $category->save();
         return redirect()->route("adminCategory");
 

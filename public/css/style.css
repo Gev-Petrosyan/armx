@@ -220,7 +220,7 @@ main section {
 }
 
 main .goods-title {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     padding: 0px 0px 0px 50px;
     display: flex;
     justify-content: space-between;
@@ -308,7 +308,7 @@ main .popular-goods {
 }
 
 main .popular-goods .product {
-    width: 360px;
+    width: 425px;
     min-height: 225px;
     padding: 5px;
     margin: 10px 0px;
@@ -327,6 +327,12 @@ main .popular-goods .product {
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+
+@media (max-width: 1400px) {
+    main .popular-goods .product {
+        width: 48%;
+    }
 }
 
 main .popular-goods .product-style-two {
@@ -395,22 +401,52 @@ main .best-goods {
     padding-top: 40px;
 }
 
+main .section-part-one nav ol {
+    display: flex;
+}
+
 main .best-goods h3 {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 39px;
-    line-height: 46px;
+    line-height: 32px;
     color: #000000;
     margin-bottom: 30px;
+}
+
+@media (max-width: 650px) {
+    main .best-goods h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
 }
 
 main .best-goods .buttons {
     width: 100%;
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
     margin-bottom: 30px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 650px) {
+    main .best-goods .buttons {
+        overflow-x: auto;
+        flex-wrap: unset;
+    }
+}
+
+main .best-goods .buttons::-webkit-scrollbar {
+    height: 5px;
+}
+  
+main .best-goods .buttons::-webkit-scrollbar-track {
+    background: transparent; 
+}
+   
+main .best-goods .buttons::-webkit-scrollbar-thumb {
+    background: transparent; 
 }
 
 main .best-goods .buttons button {
@@ -589,6 +625,16 @@ main .announcement .announcement-block h4 {
     }
 }
 
+@media (max-width: 360px) {
+    main .announcement .announcement-block {
+        padding: 10px 30px;
+    }
+    main .announcement .announcement-block h4 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+}
+
 
 /* footer */
 
@@ -651,6 +697,7 @@ footer .footer-info p {
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
+    margin-bottom: 0;
     color: #263238;
 }
 

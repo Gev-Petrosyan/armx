@@ -21,6 +21,16 @@ main {
     max-width: 1360px;
 }
 
+@media (max-width: 650px) {
+    main {
+        padding: 15px 10px;
+    }
+    main section {
+        margin: unset !important;
+        max-width: none !important;
+    }
+}
+
 @media (max-width: 1400px) {
     main {
         max-width: 1100px;
@@ -60,7 +70,7 @@ main .section-part-two {
 
 @media (max-width: 1141px) {
     main .section-part-two {
-        padding-top: 225px;
+        padding-top: 182.5px;
     }
 }
 

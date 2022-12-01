@@ -23,204 +23,43 @@
             </div>
         </section>
         <section class="popular-goods">
-            <a href="#" class="product">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
-            <a href="#" class="product product-style-two">
-                <div class="image">
-                    <img src="images/rectangle.png" alt="image">
-                </div>
-                <div class="name">
-                    <p>Изоляционные материалы</p>
-                </div>
-                <div class="price">
-                    <p>2533</p>
-                </div>
-            </a>
+            @php $foreachControll = 1 @endphp
+            @foreach ($categories as $category)
+                @if ($foreachControll <= 3)
+                    <a href="{{route("dashboardWithCategory", $category->category)}}" class="product">
+                        <div class="image">
+                            @if (is_string($category->image))
+                                <img src="{{asset("storage/category/" . $category->image)}}" alt="image">
+                            @else
+                                <p>Пусто</p>
+                            @endif
+                        </div>
+                        <div class="name">
+                            <p>{{$category->category}}</p>
+                        </div>
+                        <div class="price">
+                            <p>{{$category->type}}</p>
+                        </div>
+                    </a>
+                @else
+                    <a href="{{route("dashboardWithCategory", $category->category)}}" class="product product-style-two">
+                        <div class="image">
+                            @if (is_string($category->image))
+                                <img src="{{asset("storage/category/" . $category->image)}}" alt="image">
+                            @else
+                                <p>Пусто</p>
+                            @endif
+                        </div>
+                        <div class="name">
+                            <p>{{$category->category}}</p>
+                        </div>
+                        <div class="price">
+                            <p>{{$category->type}}</p>
+                        </div>
+                    </a>
+                @endif
+                @php $foreachControll++ @endphp
+            @endforeach
         </section>
         <section class="best-goods">
         @if (count($products))

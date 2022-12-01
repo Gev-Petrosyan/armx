@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CreateCategoriesTable extends Migration
 {
@@ -17,12 +18,14 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string("category");
-            $table->string("type");
+            $table->integer("categoryID")->nullable();
             $table->string("image")->nullable();
             $table->timestamps();
         });
 
-        $native = [
+        // testings
+
+        $subcategories = [
             "Балки, фермы",
             "Диафрагмы жесткости",
             "ЖБИ для строительства железных дорог",
@@ -35,14 +38,36 @@ class CreateCategoriesTable extends Migration
             "Лотки, элементы каналов"
         ];
 
-        foreach ($native as $item) {
-            DB::table('categories')->insert(
-                array(
-                    'category' => $item,
-                    'type' => 'native'
-                )
-            );
+        foreach ($subcategories as $subcategory) {
+            DB::table('categories')->insert(array(
+                'category' => $subcategory,
+                'categoryID' => rand(11,13),
+                'created_at' => Carbon::now()->toDateTimeString(),
+                'updated_at' => Carbon::now()->toDateTimeString()
+            ));
         }
+
+        DB::table('categories')->insert(array(
+            'category' => 'Категория один',
+            'categoryID' => NULL,
+            'created_at' => Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon::now()->toDateTimeString()
+        ));
+
+        DB::table('categories')->insert(array(
+            'category' => 'Категория два',
+            'categoryID' => NULL,
+            'created_at' => Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon::now()->toDateTimeString()
+        ));
+
+        DB::table('categories')->insert(array(
+            'category' => 'Категория три',
+            'categoryID' => NULL,
+            'created_at' => Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon::now()->toDateTimeString()
+        ));
+
     }
 
     /**

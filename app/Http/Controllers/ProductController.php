@@ -14,10 +14,20 @@ class ProductController extends Controller
 {
 
     public function products() {
-        $categories = Categories::get("category");
+        $categories = Categories::whereNull("categoryID")->get("category");
 
         return view("products", [
             "categories" => $categories
+        ]);
+    }
+
+    public function subcategory($category) {
+        if (empty($category)) return response('');
+        $categories = Categories::where("category", $category)->first(["id"]);
+        $subcategory = Categories::where("categoryID", $categories->id)->get(["category"]);
+
+        return response()->json([
+            "subcategory" => $subcategory
         ]);
     }
 

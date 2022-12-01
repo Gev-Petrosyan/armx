@@ -48,7 +48,7 @@
                     </div>
                     <div class="input-group">
                         <label for="type">Род категории</label>
-                        <input type="name" id="type" name="type" value="{{old("type")}}" required>
+                        <input type="name" id="type" name="type" value="{{old("type")}}">
                     </div>
                 </div>
             </form>

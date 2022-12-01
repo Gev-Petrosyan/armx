@@ -20,12 +20,12 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item" aria-current="page">Главная</li>
-                  <li class="breadcrumb-item active" aria-current="page">ЖБИ</li>
-                  <li class="breadcrumb-item active" aria-current="page">Фундаментные блоки</li>
+                  <li class="breadcrumb-item active" id="best-goods-title2" aria-current="page">{{(isset($category)) ? $category : 'Продукты'}}</li>
+                  <li class="breadcrumb-item active" id="best-goods-titleSub" aria-current="page"></li>
                 </ol>
             </nav>
             <section class="best-goods">
-                <h3>Фундаментные блоки</h3>
+                <h3 id="best-goods-title">{{(isset($category)) ? $category : 'Продукты'}}</h3>
                 <div class="selectors">
                     <select class="form-select form-select-sm" id="select-category" aria-label=".form-select-sm example">
                         <option selected value="all">Категория</option>
@@ -50,11 +50,16 @@
                 </div>
                 <div class="buttons" id="best-goods-buttons">
                     <button type="button" class="active">Все</button>
-                    <button type="button" class="denied">Отделочные работы</button>
+                    @if (count($subcategories))
+                        @foreach ($subcategories as $subcategory)
+                            <button type="button" class="denied">{{$subcategory->category}}</button>
+                        @endforeach
+                    @endif
+                    {{-- <button type="button" class="denied">Отделочные работы</button>
                     <button type="button" class="denied">Спецтехника</button>
                     <button type="button" class="denied">Крышки для колонн</button>
                     <button type="button" class="denied">Парапеты</button>
-                    <button type="button" class="denied">Декор</button>
+                    <button type="button" class="denied">Декор</button> --}}
                 </div>
                 <div class="products" id="products">
                     @if (count($products))

@@ -26,6 +26,10 @@ Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'
 Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'resetPasswordToken'])->middleware('guest')->name('password.reset');
 
 Route::get('/', [HomeController::class, "welcome"])->name("welcome");
+Route::get('/dashboard', [HomeController::class, "dashboard"])->name('dashboard');
+Route::get('/dashboard/category/{category}', [HomeController::class, "dashboardWithCategory"])->name('dashboardWithCategory');
+Route::post('/company/products/getDataValidate', [ProductController::class, "getDataValidate"])->name('getDataValidate');
+Route::get('/product/category/{category}', [ProductController::class, "subcategory"])->name('subcategory');
 
 Route::middleware([
     'auth:sanctum',
@@ -34,8 +38,6 @@ Route::middleware([
 ])->group(function () {
 
     // user
-
-    Route::get('/dashboard', [HomeController::class, "dashboard"])->name('dashboard');
 
     Route::get('/company/settings', [CompanyController::class, "settings"])->name('settings');
     Route::post('/company/settings/edit', [CompanyController::class, "update"])->name('settingsEdit');
@@ -46,7 +48,6 @@ Route::middleware([
     Route::post('/company/products/delete', [ProductController::class, "delete"])->name('productDelete');
     Route::get('/company/products/{id}/edit', [ProductController::class, "edit"])->name('productEdit');
     Route::post('/company/products/update', [ProductController::class, "update"])->name('productUpdate');
-    Route::post('/company/products/getDataValidate', [ProductController::class, "getDataValidate"])->name('getDataValidate');
 
     // admin
 

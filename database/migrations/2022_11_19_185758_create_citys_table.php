@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CreateCitysTable extends Migration
 {
@@ -32,7 +33,9 @@ class CreateCitysTable extends Migration
             DB::table('citys')->insert(
                 array(
                     'city' => $item,
-                    'type' => 'native'
+                    'type' => 'native',
+                    'created_at' => Carbon::now()->toDateTimeString(),
+                    'updated_at' => Carbon::now()->toDateTimeString()
                 )
             );
         }

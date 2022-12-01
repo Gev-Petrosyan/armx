@@ -39,7 +39,7 @@
                     @foreach ($categories as $category)
                         <tr>
                             <td>{{$category->category}}</td>
-                            <td>{{$category->type}}</td>
+                            <td>{{$category->categoryID}}</td>
                             <td>
                                 @if (isset($category->image))
                                     <img src="{{asset("storage/category/" . $category->image)}}" alt="image">

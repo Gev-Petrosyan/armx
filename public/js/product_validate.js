@@ -1,6 +1,9 @@
 $(function() {
 
     const products = $("#products");
+    const best_goods_title = $("#best-goods-title");
+    const best_goods_title2 = $("#best-goods-title2");
+    const best_goods_titleSub = $("#best-goods-titleSub");
 
     let subcategory = "all";
     let category = "all";
@@ -74,26 +77,7 @@ $(function() {
 
 
     function request(subcategory, category, city) {
-        pagination.html("");
-        products.html("");
-
-        for (let i = 0; i < 9; i++) {
-            products.append(`
-                <div class="card product">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect></svg>
-                    <div class="card-body">
-                        <h5 class="card-title placeholder-glow">
-                        <span class="placeholder col-6"></span>
-                        </h5>
-                        <p class="card-text placeholder-glow">
-                        <span class="placeholder col-9 mb-1"></span>
-                        <span class="placeholder col-6 mb-2"></span>
-                        <span class="placeholder col-7"></span>
-                        </p>
-                    </div>
-                </div>
-            `);
-        }
+        requestSetHTML();
 
         if (city == "Все города") {
             city = "all";
@@ -139,6 +123,42 @@ $(function() {
 
             }
         });
+    }
+
+    function requestSetHTML() {
+        pagination.html("");
+        products.html("");
+
+        best_goods_title.html('Продукты');
+        best_goods_title2.html('Продукты');
+        best_goods_titleSub.html('');
+
+        if (subcategory !== 'all') {
+            best_goods_title.html(subcategory);
+            best_goods_titleSub.html(subcategory);
+        }
+
+        if (category !== 'all') {
+            best_goods_title2.html(category);
+        }
+
+        for (let i = 0; i < 9; i++) {
+            products.append(`
+                <div class="card product">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect></svg>
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                        <span class="placeholder col-9 mb-1"></span>
+                        <span class="placeholder col-6 mb-2"></span>
+                        <span class="placeholder col-7"></span>
+                        </p>
+                    </div>
+                </div>
+            `);
+        }
     }
     
 
