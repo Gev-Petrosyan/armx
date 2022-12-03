@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf_token" content="{{csrf_token()}}">
+    <meta name="category" content="{{isset($category) ? $category : 'all'}}">
     <link rel="stylesheet" href="{{asset("css/style.css")}}">
     <link rel="stylesheet" href="{{asset("css/dashboard.css")}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -20,16 +21,16 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item" aria-current="page">Главная</li>
-                  <li class="breadcrumb-item active" id="best-goods-title2" aria-current="page">{{(isset($category)) ? $category : 'Продукты'}}</li>
+                  <li class="breadcrumb-item active" id="best-goods-title2" aria-current="page">{{(isset($category)) ? $category : 'Все товары'}}</li>
                   <li class="breadcrumb-item active" id="best-goods-titleSub" aria-current="page"></li>
                 </ol>
             </nav>
             <section class="best-goods">
-                <h3 id="best-goods-title">{{(isset($category)) ? $category : 'Продукты'}}</h3>
+                <h3 id="best-goods-title">{{(isset($category)) ? $category : 'Все товары'}}</h3>
                 <div class="selectors">
                     <select class="form-select form-select-sm" id="select-category" aria-label=".form-select-sm example">
                         <option selected value="all">Категория</option>
-                        @if ($categories)
+                        @if (isset($categories) && count($categories))
                             @foreach ($categories as $category)
                                 <div class="category-block">
                                     <option value="{{$category->category}}">{{$category->category}}</option>
@@ -49,17 +50,18 @@
                     </select>
                 </div>
                 <div class="buttons" id="best-goods-buttons">
-                    <button type="button" class="active">Все</button>
-                    @if (count($subcategories))
-                        @foreach ($subcategories as $subcategory)
-                            <button type="button" class="denied">{{$subcategory->category}}</button>
+                    @if (isset($subcategory))
+                        <button type="button" class="active">Все</button>
+                        @foreach ($subcategory as $item)
+                            <button type="button" class="denied">{{$item->category}}</button>
                         @endforeach
                     @endif
-                    {{-- <button type="button" class="denied">Отделочные работы</button>
-                    <button type="button" class="denied">Спецтехника</button>
-                    <button type="button" class="denied">Крышки для колонн</button>
-                    <button type="button" class="denied">Парапеты</button>
-                    <button type="button" class="denied">Декор</button> --}}
+                    {{-- <button type="button" class="active">Все</button>
+                    @if (isset($categories) && count($categories))
+                        @foreach ($categories as $category)
+                            <button type="button" class="denied">{{$category->category}}</button>
+                        @endforeach
+                    @endif --}}
                 </div>
                 <div class="products" id="products">
                     @if (count($products))
@@ -99,8 +101,8 @@
         <div class="section-part-two">
             <div class="category">
                 <h3>Категория</h3>
-                @if ($categories)
-                    @foreach ($categories as $category)
+                @if ($subcategories)
+                    @foreach ($subcategories as $category)
                         <div class="category-block">
                             <p class="category-name">{{$category->category}}</p>
                             <p class="length">{{$category->length}}</p>

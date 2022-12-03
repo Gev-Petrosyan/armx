@@ -26,7 +26,7 @@
             @php $foreachControll = 1 @endphp
             @foreach ($categories as $category)
                 @if ($foreachControll <= 3)
-                    <a href="{{route("dashboardWithCategory", $category->category)}}" class="product">
+                    <a href="{{route("dashboardWithCategory", $category->id)}}" class="product">
                         <div class="image">
                             @if (is_string($category->image))
                                 <img src="{{asset("storage/category/" . $category->image)}}" alt="image">
@@ -38,11 +38,11 @@
                             <p>{{$category->category}}</p>
                         </div>
                         <div class="price">
-                            <p>{{$category->type}}</p>
+                            <p>{{$category->length}}</p>
                         </div>
                     </a>
                 @else
-                    <a href="{{route("dashboardWithCategory", $category->category)}}" class="product product-style-two">
+                    <a href="{{route("dashboardWithCategory", $category->id)}}" class="product product-style-two">
                         <div class="image">
                             @if (is_string($category->image))
                                 <img src="{{asset("storage/category/" . $category->image)}}" alt="image">
@@ -54,7 +54,7 @@
                             <p>{{$category->category}}</p>
                         </div>
                         <div class="price">
-                            <p>{{$category->type}}</p>
+                            <p>{{$category->length}}</p>
                         </div>
                     </a>
                 @endif

@@ -6,7 +6,7 @@ $(function() {
     const best_goods_titleSub = $("#best-goods-titleSub");
 
     let subcategory = "all";
-    let category = "all";
+    let category = $("meta[name='category']").attr("content");
     let city = "all";
     const _token = $("meta[name='csrf_token']").attr("content");
 
@@ -22,15 +22,32 @@ $(function() {
     }
 
 
-    const buttons = $("#best-goods-buttons button");
+    const buttonNavabar = $("#best-goods-buttons");
+    // buttonNavabar.html("");
 
-    buttons.click(function() {
-        deleteActivity(buttons);
+    const subcategoryList = $(".section-part-two .category .category-block .category-name");
+    subcategoryList.each(function () {
+        let element = $(this);
+        if (element.text() == category) {
+            element.addClass('active');
+        }
+    });
+
+    $("#best-goods-buttons button").click(function() {
+        deleteActivity($("#best-goods-buttons button"));
         $(this).removeClass("denied");
         $(this).addClass("active");
         subcategory = $(this).html() == "Все" ? "all" : $(this).html();
-        request(subcategory, category, city);
+        request(subcategory, category, city, false);
     });
+
+    buttonsNavabar = (element) => {
+        deleteActivity($("#best-goods-buttons button"));
+        element.removeClass("denied");
+        element.addClass("active");
+        subcategory = element.html() == "Все" ? "all" : element.html();
+        request(subcategory, category, city, false);
+    };
 
     
     const categorys = $(".section-part-two .category .category-name");
@@ -39,18 +56,20 @@ $(function() {
         if ($(this).hasClass("active")) {
             deleteOnlyActivity(categorys);
             category = "all";
+            subcategory = "all";
         } else {
             deleteOnlyActivity(categorys);
             category = $(this).html();
             $(this).addClass("active");
         }
-        request(subcategory, category, city);
+        request(subcategory, category, city, true);
     });
 
 
     const citys = $(".section-part-two .citys .category-name");
 
     citys.click(function() {
+        console.log($("#best-goods-buttons button"));
         if ($(this).hasClass("active")) {
             deleteOnlyActivity(citys);
             city = "all";
@@ -59,7 +78,7 @@ $(function() {
             city = $(this).html();
             $(this).addClass("active");
         }
-        request(subcategory, category, city);
+        request(subcategory, category, city, false);
     });
 
     const select_category = $("#select-category");
@@ -67,16 +86,16 @@ $(function() {
 
     select_category.change(function () {
         category = $(this).val();
-        request(subcategory, category, city)
+        request(subcategory, category, city, false)
     })
 
     select_city.change(function () {
         city = $(this).val();
-        request(subcategory, category, city)
+        request(subcategory, category, city, false)
     })
 
 
-    function request(subcategory, category, city) {
+    function request(subcategory, category, city, norefresh) {
         requestSetHTML();
 
         if (city == "Все города") {
@@ -88,8 +107,8 @@ $(function() {
             type: "POST",
             data: {
                 _token: _token,
-                subcategory: subcategory,
-                category: category,
+                subcategory: category,
+                category: subcategory,
                 city: city
             },
             success: function(data) {
@@ -105,7 +124,7 @@ $(function() {
                     products.append(`
                         <a href="product/${product.id}" class="product">
                             <div class="image">
-                                <img src="storage/product/${image}" alt="image">
+                                <img src="/storage/product/${image}" alt="image">
                             </div>
                             <div class="text">
                                 <h4>${product.name}</h4>
@@ -121,6 +140,19 @@ $(function() {
                     products.html(`<p style="margin: auto;padding: 90px 0 300px 0;font-size: 26px;font-weight: 800;">Пусто...</p>`);
                 }
 
+                if (norefresh == false) return;
+                if (category == "all") {
+                    buttonNavabar.html("");
+                    return
+                }
+
+                let subcategories = data.subcategory;
+
+                buttonNavabar.html(`<button type="button" class="active" onclick="buttonsNavabar($(this))">Все</button>`);
+                subcategories.forEach(index => {
+                    buttonNavabar.append(`<button type="button" class="denied" onclick="buttonsNavabar($(this))">${index.category}</button>`)
+                });
+
             }
         });
     }
@@ -129,17 +161,17 @@ $(function() {
         pagination.html("");
         products.html("");
 
-        best_goods_title.html('Продукты');
-        best_goods_title2.html('Продукты');
+        best_goods_title.html('Все товары');
+        best_goods_title2.html('Все товары');
         best_goods_titleSub.html('');
 
         if (subcategory !== 'all') {
-            best_goods_title.html(subcategory);
             best_goods_titleSub.html(subcategory);
         }
 
         if (category !== 'all') {
             best_goods_title2.html(category);
+            best_goods_title.html(category);
         }
 
         for (let i = 0; i < 9; i++) {

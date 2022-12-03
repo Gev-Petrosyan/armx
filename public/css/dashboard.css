@@ -10,6 +10,9 @@ body {
     background-color: #f5f7fa;
 }
 
+p {
+    margin-bottom: 0 !important;
+}
 
 /* main */
 
@@ -65,7 +68,7 @@ main .section-part-one {
 
 main .section-part-two {
     width: 25%;
-    padding-top: 184px;
+    padding-top: 100px;
 }
 
 @media (max-width: 1141px) {
@@ -76,7 +79,6 @@ main .section-part-two {
 
 main .section-part-two .category {
     background: #FFFFFF;
-    min-height: 750px;
     box-shadow: 0px 3.81503px 22.8902px rgba(0, 0, 0, 0.04);
     border-radius: 3.81503px;
     padding: 25px;
@@ -94,7 +96,6 @@ main .section-part-two .category h3 {
 
 main .section-part-two .citys {
     background: #FFFFFF;
-    min-height: 400px;
     margin-top: 30px;
     box-shadow: 0px 3.81503px 22.8902px rgba(0, 0, 0, 0.04);
     border-radius: 3.81503px;
@@ -113,6 +114,7 @@ main .section-part-two .citys h3 {
 
 main .section-part-two .category-name {
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 main .section-part-two .category-block {

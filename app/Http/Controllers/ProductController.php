@@ -83,6 +83,8 @@ class ProductController extends Controller
         $category = $request->category;
         $city = $request->city;
 
+        $categoryResponse = array();
+
         if ($subcategory == "all" && $category == "all" && $city == "all") {
             $products = DB::table("products")
             ->distinct('products.id')
@@ -100,6 +102,9 @@ class ProductController extends Controller
             "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
             ->limit(90)
             ->get();
+
+            $subcategoryResponse = Categories::where('category', $subcategory)->first('id');
+            $categoryResponse = Categories::where('categoryID', $subcategoryResponse->id)->get('category');
         } else if ($subcategory == "all" && $category != "all" && $city == "all") {
             $products = DB::table("products")
             ->distinct('products.id')
@@ -128,6 +133,9 @@ class ProductController extends Controller
             "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
             ->limit(90)
             ->get();
+
+            $subcategoryResponse = Categories::where('category', $subcategory)->first('id');
+            $categoryResponse = Categories::where('categoryID', $subcategoryResponse->id)->get('category');
         } else if ($subcategory == "all" && $category != "all" && $city != "all") {
             $products = DB::table("products")
             ->distinct('products.id')
@@ -148,6 +156,9 @@ class ProductController extends Controller
             "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
             ->limit(90)
             ->get();
+
+            $subcategoryResponse = Categories::where('category', $subcategory)->first('id');
+            $categoryResponse = Categories::where('categoryID', $subcategoryResponse->id)->get('category');
         } else {
             $products = DB::table("products")
             ->distinct('products.id')
@@ -159,10 +170,14 @@ class ProductController extends Controller
             "products.price", "users.city", DB::raw('(select image from product_images where id_product = products.id limit 1) as image'))
             ->limit(90)
             ->get();
+
+            $subcategoryResponse = Categories::where('category', $subcategory)->first('id');
+            $categoryResponse = Categories::where('categoryID', $subcategoryResponse->id)->get('category');
         }
 
         return response()->json([
-            "products" => $products
+            "products" => $products,
+            "subcategory" => $categoryResponse
         ]);
 
     }

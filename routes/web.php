@@ -27,9 +27,11 @@ Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'resetPa
 
 Route::get('/', [HomeController::class, "welcome"])->name("welcome");
 Route::get('/dashboard', [HomeController::class, "dashboard"])->name('dashboard');
+Route::get('/dashboard/category', [HomeController::class, "dashboard"])->name('dashboardWithNullCategory');
 Route::get('/dashboard/category/{category}', [HomeController::class, "dashboardWithCategory"])->name('dashboardWithCategory');
 Route::post('/company/products/getDataValidate', [ProductController::class, "getDataValidate"])->name('getDataValidate');
 Route::get('/product/category/{category}', [ProductController::class, "subcategory"])->name('subcategory');
+Route::get('/product/{id}', [ProductController::class, "show"])->name('productShow');
 
 Route::middleware([
     'auth:sanctum',
@@ -41,7 +43,6 @@ Route::middleware([
 
     Route::get('/company/settings', [CompanyController::class, "settings"])->name('settings');
     Route::post('/company/settings/edit', [CompanyController::class, "update"])->name('settingsEdit');
-    Route::get('/product/{id}', [ProductController::class, "show"])->name('productShow');
 
     Route::get('/company/products', [ProductController::class, "products"])->name('products');
     Route::post('/company/products/create', [ProductController::class, "store"])->name('productCreate');
