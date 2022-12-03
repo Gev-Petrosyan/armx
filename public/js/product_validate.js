@@ -86,7 +86,7 @@ $(function() {
 
     select_category.change(function () {
         category = $(this).val();
-        request(subcategory, category, city, false)
+        request(subcategory, category, city, true)
     })
 
     select_city.change(function () {

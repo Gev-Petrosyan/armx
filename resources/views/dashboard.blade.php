@@ -29,12 +29,15 @@
                 <h3 id="best-goods-title">{{(isset($category)) ? $category : 'Все товары'}}</h3>
                 <div class="selectors">
                     <select class="form-select form-select-sm" id="select-category" aria-label=".form-select-sm example">
-                        <option selected value="all">Категория</option>
-                        @if (isset($categories) && count($categories))
-                            @foreach ($categories as $category)
-                                <div class="category-block">
-                                    <option value="{{$category->category}}">{{$category->category}}</option>
-                                </div>
+                        @if (isset($category))
+                            <option selected value="{{$category}}">{{$category}}</option>
+                            <option value="all">Категория</option>
+                        @else
+                            <option selected value="all">Категория</option>
+                        @endif
+                        @if ($subcategories)
+                            @foreach ($subcategories as $category)
+                                <option value="{{$category->category}}">{{$category->category}}</option>
                             @endforeach
                         @endif
                     </select>
@@ -56,12 +59,6 @@
                             <button type="button" class="denied">{{$item->category}}</button>
                         @endforeach
                     @endif
-                    {{-- <button type="button" class="active">Все</button>
-                    @if (isset($categories) && count($categories))
-                        @foreach ($categories as $category)
-                            <button type="button" class="denied">{{$category->category}}</button>
-                        @endforeach
-                    @endif --}}
                 </div>
                 <div class="products" id="products">
                     @if (count($products))
