@@ -49,11 +49,11 @@
                 </div>
                 <div class="product-inputs">
                     <div class="input-group">
-                        <label for="name">Название категории</label>
+                        <label for="category">Название категории</label>
                         <input type="name" id="category" name="category" value="{{$category->category}}" required>
                     </div>
                     <div class="input-group">
-                        <label for="name">Название города</label>
+                        <label for="type">Род категории</label>
                         <input type="name" id="type" name="type" value="{{$category->type}}">
                     </div>
                 </div>

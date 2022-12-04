@@ -69,7 +69,7 @@ class AdminActionController extends Controller
 
         if ($request->hasFile("image")) {
             $path = public_path() . '/storage/city/' . $city->image;
-            if (file_exists($path)) {
+            if (file_exists($path) && $city->image) {
                 unlink($path);
             }
             $image = $request->image;
@@ -99,7 +99,7 @@ class AdminActionController extends Controller
 
         if ($request->hasFile("image")) {
             $path = public_path() . '/storage/category/' . $category->image;
-            if (file_exists($path)) {
+            if (file_exists($path) && $category->image) {
                 unlink($path);
             }
             $image = $request->image;
